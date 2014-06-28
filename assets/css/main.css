@@ -94,6 +94,11 @@ a:visited { color: #a0a; }
   color: #aaa;
 }
 
+.word-count {
+  color: #aaa;
+  font-size: 50%;
+}
+
 .footer {
   font-size: 80%;
   color: #666;
