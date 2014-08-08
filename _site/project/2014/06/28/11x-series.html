@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>11x Series</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/assets/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Words.Numbers.Images</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>11x Series<span class="word-count">[261 words - 2 minute(s) @ 200 wpm]</span></h2>
+<p class="meta">28 Jun 2014</p>
+
+
+<div class="post">
+<p>This was my <a target="_blank" href="http://bl.ocks.org/nolanbjohnson/7592473">first project</a> to learn D3.js and is based on <a href="http://www.stefanieposavec.co.uk/">Stefanie Posavec</a>'s <a href="http://www.stefanieposavec.co.uk/data/#/11-x-series-multiplication-waterfall/">11x series.</a></p>
+
+<p>Biggest hurdles:
+<ul>
+  <li>Dealing with (really) big numbers</li>
+  <li>Learning D3, JavaScript, and Web Development at on</li>
+  <li>Stop trying to learn and just do</li>
+</ul>
+</p>
+
+<p>Building some simple <code>inputs</code>:</p>
+
+<div class="highlight"><pre><code class="javascript">    <span class="k">for</span> <span class="p">(</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">multiplicands</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//add number to end of array of the same length as the last, </span>
+      <span class="c1">//comprised of ones (e.g., if 121 add 111)</span>
+      <span class="nx">inputs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="o">+</span><span class="nb">Array</span><span class="p">((</span><span class="nx">inputs</span><span class="p">[</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> 
+      <span class="nx">inputs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">inputs</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">*</span> <span class="nx">inputs</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p id="first">
+<script>
+var w = 200,
+    h = 400,
+    margin = {top: 20, right: 20, bottom: 40, left: 40},
+    radius = 10,
+    offset = radius * 2 + 2
+    multiplicands = 3;
+
+var svg = d3.select('#first')
+      .append("svg")
+      .attr("width", w - margin.left - margin.right )
+      .attr("height", h - margin.top - margin.bottom );
+
+var inputs = [];
+
+inputs.push(11);
+
+for ( i = 0; i < multiplicands; i++ ) {
+  inputs.push(+Array((inputs[inputs.length - 1]+"").length + 1).join(1));
+  inputs.push(inputs[i] * inputs[i + 1]);
+}
+
+inputs = inputs.map( function(value) { return (value+"").split(""); })
+
+var g = svg.selectAll(".row")
+         .data(inputs)
+         .enter()
+         .append("g")
+         .attr("class", "row")
+          .attr("transform", function(d, i) { 
+                return "translate(0, " + (i * offset) + ")";
+              });
+
+var circle = g.selectAll("circle")
+              .data( function( d, i ) { return d ; } )
+              .enter()
+              .append("circle")
+              .attr("r", radius)
+              .attr("cx", function( d, i ) { return w - margin.left - margin.right - offset * (i + 1) ; } )
+              .attr("cy", offset)
+              .attr("fill", "black")
+              .attr("stroke", "none");
+
+</script>
+</p>
+
+<script src="https://gist.github.com//nolanbjohnson/7592473.js"> </script>
+
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Nolan Johnson<br />
+                Data Visionary<br />
+                nolanbjohnson@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/nolanbjohnson">github.com/nolanbjohnson</a><br />
+                <a href="https://twitter.com/nolanbjohnson">twitter.com/nolanbjohnson</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>
