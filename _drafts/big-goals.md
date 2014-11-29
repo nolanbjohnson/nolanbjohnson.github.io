@@ -7,10 +7,10 @@ categories: random
 
 <h2>Data science, visualization & programming</h2>
 
-<ul>
+<ol>
 	<li>UW Data Science Coursera</li>
-	<li>First big data project</li>
+	<li>First big data project placeholder</li>
 	<li></li>
 	<li></li>
-	<li></li>
-</ul>
+	<li>Create website portfolio</li>
+</ol>
