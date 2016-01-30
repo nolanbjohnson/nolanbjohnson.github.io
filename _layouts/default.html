@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
-
+        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="{{ site.url }}/assets/css/syntax.css">
 
@@ -17,16 +17,9 @@
 
         <div class="site">
           <div class="header">
+            <img src="assets/logo.png" height="40px"/>
             <h1 class="title"><a href="/">{{ site.name }}</a></h1>
             <a class="extra" href="/">home</a>
-          </div>
-          <div class="video">
-            <h2>A SQL Song</h2>
-            <p>Listen to this song that helps people learn how to write SQL.</p>
-            <p>If you're interested in learning SQL yourself, check out <a href="https://docs.google.com/document/u/1/d/1EMVi8qywx8NJjXKZSzVN1oy9-NKCKa1MmXGeNfQvf_c/pub">Learn SQL in 10 minutes</a></p>
-            <iframe width="420" height="315"
-              src="http://www.youtube.com/embed/fIvzee7KiEE?autoplay=1">
-            </iframe>
           </div>
 
           {{ content }}
