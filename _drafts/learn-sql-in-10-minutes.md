@@ -5,15 +5,12 @@ date:   2015-11-27
 categories: DAC
 ---
 # Learn SQL in 10 minutes
-Hopefully you’re already convinced that learning SQL is worth it (why would you bother if you didn’t…don’t you have anything better to do?!), but if not check this out first. That’s not part of the 10 minutes, just so you know. 
-In the next 10 minutes you’ll learn a method for writing SQL that will initially serve as a crutch to help you hobble through SQL until you internalize the process. Then you’ll be standing on two solid SQL feet. Then you can learn to walk, run, skip and dance with SQL. 
-All the background you need
-Databases are where we store mass amounts of data. One way of storing data in databases is called relational, which means “a bunch of related, but separate, tables.” SQL is meant for relational databases. Tables have rows (called records) and columns (called fields). A piece of data is stored in a field in a record.
+<p>Hopefully you’re already convinced that learning SQL is worth it (why would you bother if you didn’t…don’t you have anything better to do?!), but if not check this out first. That’s not part of the 10 minutes, just so you know.</p> 
+<p>In the next 10 minutes you’ll learn a method for writing SQL that will initially serve as a crutch to help you hobble through SQL until you internalize the process. Then you’ll be standing on two solid SQL feet. Then you can learn to walk, run, skip and dance with SQL. 
+All the background you need</p>
+<p>Databases are where we store mass amounts of data. One way of storing data in databases is called relational, which means “a bunch of related, but separate, tables.” SQL is meant for relational databases. Tables have rows (called records) and columns (called fields). A piece of data is stored in a field in a record.
 SQL allows us to retrieve records from tables 
-within relational databases.
-
-## Stuff you need to know for the real world
-There are two types of databases: file-based and server-based. A file-based database is housed completely within your computer in a single file. A server-based database is a piece of software that sits on another computer. To interact with this type of database, you use a client (a piece of software on your computer that couples with the piece of software on the other computer) to connect to the server and then send a SQL statement over the connection and receive data back. For obvious reasons, server-based databases are more difficult to set up, but are more commonly used in the real world because multiple users can easily connect to and use the same database. File-based databases are simple to set up and great for practicing SQL and for when you’re the only one who needs to access the data.
+within relational databases.</p>
 
 ## SQL is easy
 SQL is more structured than most programming languages—in fact SQL is short for Structured Query Language. Query means question, and we’re learning how to pose questions that a database can respond to with data. Questions to a database begin with the keyword SELECT.
@@ -26,21 +23,16 @@ So, in the SGT below, SELECT, FROM and the semicolon (;) are part of every query
  
 As you can see, type of “reference to the data” is dependent on which keyword precedes it. SELECT is followed by one or more field names from the table that’s specified in the FROM clause. Those field names are the ones you will get back from the database.
 
- Gender | Frequency
-:---|---:|
- Male 	| 16 | 
- Female 	| 37 | 
-
 SQL Keyword | Reference to the Data | Description
-:---|:---|---:|
-**SELECT** | field names separated by commas | The data you want to see |
-**FROM** | table name | The table where the data lives |
+:---|:---|:---|
+<b>SELECT</b> | field names separated by commas | The data you want to see |
+<b>FROM</b> | table name | The table where the data lives |
 WHERE | condition is true | Filters to rows where condition is true |
 GROUP BY  | field(s) to group on | Summarize groups of data |
 HAVING | condition is true for the group | Filters to groups where aggregate is true |
 ORDER BY | field(s) to sort on | Sorts the data |
 LIMIT | a number (of rows to return) | Limits to a certain number of rows |
-**;** | not applicable* | ends the SQL statement
+<b>;</b> | not applicable* | ends the SQL statement
  
 note: The semicolon isn’t actually a clause, it just ends the statement and so there is no “reference to the data.”
 
@@ -116,6 +108,9 @@ Limits to a certain number of rows
 ;
 not applicable
 ends the SQL statement
+
+## Stuff you need to know for the real world
+There are two types of databases: file-based and server-based. A file-based database is housed completely within your computer in a single file. A server-based database is a piece of software that sits on another computer. To interact with this type of database, you use a client (a piece of software on your computer that couples with the piece of software on the other computer) to connect to the server and then send a SQL statement over the connection and receive data back. For obvious reasons, server-based databases are more difficult to set up, but are more commonly used in the real world because multiple users can easily connect to and use the same database. File-based databases are simple to set up and great for practicing SQL and for when you’re the only one who needs to access the data.
 
 You can live without this, but probably shouldn’t
 One thing I have neglected to mention thus far and that is typically the first query a beginner learns is what’s called “select star.” The so called “star” in SQL is the asterisk character and is shorthand for returning the entire record (all the fields). It’s only used in the SELECT clause, and some people say count(*) instead of count(1), meaning count the record. The following query returns the first 100 records containing every field in the people table.
